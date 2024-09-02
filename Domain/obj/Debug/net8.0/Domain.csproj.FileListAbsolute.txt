@@ -1,0 +1,12 @@
+/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/bin/Debug/net8.0/Domain.deps.json
+/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/bin/Debug/net8.0/Domain.dll
+/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/bin/Debug/net8.0/Domain.pdb
+/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/obj/Debug/net8.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache
+/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs
+/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache
+/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/obj/Debug/net8.0/Domain.sourcelink.json
+/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/obj/Debug/net8.0/Domain.dll
+/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/obj/Debug/net8.0/refint/Domain.dll
+/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/obj/Debug/net8.0/Domain.pdb
+/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/obj/Debug/net8.0/ref/Domain.dll
