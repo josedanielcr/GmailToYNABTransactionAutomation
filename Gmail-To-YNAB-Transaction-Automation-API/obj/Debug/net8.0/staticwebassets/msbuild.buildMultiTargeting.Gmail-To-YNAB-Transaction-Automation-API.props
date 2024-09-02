@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Gmail-To-YNAB-Transaction-Automation-API.props" />
+</Project>

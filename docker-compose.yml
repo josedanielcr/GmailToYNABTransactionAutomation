@@ -1,0 +1,6 @@
+﻿services:
+  gmail-to-ynab-transaction-automation-api:
+    image: gmail-to-ynab-transaction-automation-api
+    build:
+      context: .
+      dockerfile: Gmail-To-YNAB-Transaction-Automation-API/Dockerfile
