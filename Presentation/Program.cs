@@ -1,11 +1,12 @@
-using Application.Transactions;
+using Gmail_To_YNAB_Transaction_Automation_API.Configuration;
 using Gmail_To_YNAB_Transaction_Automation_API.Transactions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<ITransactionManager, TransactionManager>();
+builder.Services.AddExternalServices(builder.Configuration);
+builder.Services.AddInternalServices();
 
 var app = builder.Build();
 
