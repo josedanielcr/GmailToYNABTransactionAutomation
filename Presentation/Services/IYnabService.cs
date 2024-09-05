@@ -6,5 +6,5 @@ namespace Gmail_To_YNAB_Transaction_Automation_API.Services;
 
 public interface IYnabService
 {
-    Task<YnabTransaction> GenerateTransactionAsync(YnabTransaction transaction);
+    Task<HttpResponseMessage> GenerateTransactionAsync(YnabTransaction transaction, string budgetId);
 }

@@ -1,6 +1,6 @@
 using System.Net;
+using System.Text;
 using System.Text.Json;
-using System.Transactions;
 using Domain.Entities;
 using Gmail_To_YNAB_Transaction_Automation_API.Services;
 using Moq;
@@ -14,6 +14,7 @@ public class YnabServiceTests
     private readonly Mock<HttpMessageHandler> _httpMessageHandlerMock;
     private readonly string _baseUri = "https://api.youneedabudget.com/v1/";
     private readonly string _mediaTypeResponse = "application/json";
+    private readonly string _myBudgetId = "myBudget";
 
     public YnabServiceTests()
     {
@@ -25,20 +26,15 @@ public class YnabServiceTests
         _sut = new YnabService(httpClient);
     }
     
-    private void SetupMockResponse(YnabTransaction expectedTransactionResult)
+    private void SetupMockResponse(HttpResponseMessage expectedTransactionResult)
     {
-        var responseMessage = new HttpResponseMessage(HttpStatusCode.OK)
-        {
-            Content = new StringContent(JsonSerializer.Serialize(expectedTransactionResult), System.Text.Encoding.UTF8, _mediaTypeResponse)
-        };
-        
         _httpMessageHandlerMock
             .Protected()
             .Setup<Task<HttpResponseMessage>>(
                 "SendAsync",
                 ItExpr.IsAny<HttpRequestMessage>(),
                 ItExpr.IsAny<CancellationToken>())
-            .ReturnsAsync(responseMessage);
+            .ReturnsAsync(expectedTransactionResult);
     }
 
     [Fact]
@@ -48,19 +44,30 @@ public class YnabServiceTests
         var transaction = new YnabTransaction("id", DateTime.Now, 100, "memo");
         var expectedTransaction = transaction;
         expectedTransaction.Id = "newId";
-        SetupMockResponse(expectedTransaction);
+        var mockResponse = new HttpResponseMessage(HttpStatusCode.OK)
+        {
+            Content = new StringContent(JsonSerializer.Serialize(expectedTransaction), Encoding.UTF8, _mediaTypeResponse)
+        };
+        SetupMockResponse(mockResponse);
 
         // Act
-        var response = await _sut.GenerateTransactionAsync(transaction);
+        var response = await _sut.GenerateTransactionAsync(transaction,_myBudgetId);
 
         // Assert
-        Assert.Equal(expectedTransaction, response);
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        var responseContent = await response.Content.ReadAsStringAsync();
+        var actualTransaction = JsonSerializer.Deserialize<YnabTransaction>(responseContent);
+        Assert.NotNull(actualTransaction);
+        Assert.Equal(expectedTransaction.Id, actualTransaction.Id);
+        Assert.Equal(expectedTransaction.Date, actualTransaction.Date);
+        Assert.Equal(expectedTransaction.Amount, actualTransaction.Amount);
+        Assert.Equal(expectedTransaction.Memo, actualTransaction.Memo);
     }
     
     [Fact]
     public async Task GenerateTransactionAsync_ShouldThrowArgumentNullException_WhenTransactionIsNull()
     {
         // Act & Assert
-        await Assert.ThrowsAsync<ArgumentNullException>(() => _sut.GenerateTransactionAsync(null));
+        await Assert.ThrowsAsync<ArgumentNullException>(() => _sut.GenerateTransactionAsync(null,_myBudgetId));
     }
 }
