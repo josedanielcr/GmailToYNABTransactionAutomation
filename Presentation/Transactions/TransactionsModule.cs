@@ -10,7 +10,7 @@ public static class TransactionsModule
     {
         app.MapPost("/transaction", async (Email email, ITransactionManager manager) =>
         {
-            await manager.ReceiveEmailTransaction(email);
+            await manager.ProcessTransactionAsync(email);
         });
     }
 }

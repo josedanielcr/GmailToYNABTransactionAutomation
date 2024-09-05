@@ -22,6 +22,13 @@ public static class ExternalServices
         });
         services.AddScoped<IOpenAiService, OpenAiService>();
         
+        //Ynab http client and service
+        services.AddHttpClient<IYnabService, YnabService>(client =>
+        {
+            client.BaseAddress = new Uri("https://api.youneedabudget.com/v1/");
+            client.DefaultRequestHeaders.Add("Authorization", $"Bearer {configuration["ynab-api-key"]}");
+        });
+        
         return services;
     }
 }

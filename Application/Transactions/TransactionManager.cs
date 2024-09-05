@@ -4,7 +4,7 @@ namespace Application.Transactions;
 
 public class TransactionManager : ITransactionManager
 {
-    public Task ReceiveEmailTransaction(Email email)
+    public Task ProcessTransactionAsync(Email email)
     {
         throw new NotImplementedException();
     }

@@ -4,5 +4,5 @@ namespace Application.Transactions;
 
 public interface ITransactionManager
 {
-    Task ReceiveEmailTransaction(Email email);
+    Task ProcessTransactionAsync(Email email);
 }
