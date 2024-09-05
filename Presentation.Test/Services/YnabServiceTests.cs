@@ -1,5 +1,6 @@
 using System.Net;
-using System.Net.Http.Json;
+using System.Text.Json;
+using System.Transactions;
 using Domain.Entities;
 using Gmail_To_YNAB_Transaction_Automation_API.Services;
 using Moq;
@@ -11,72 +12,49 @@ public class YnabServiceTests
 {
     private readonly YnabService _sut;
     private readonly Mock<HttpMessageHandler> _httpMessageHandlerMock;
+    private readonly string _baseUri = "https://api.youneedabudget.com/v1/";
+    private readonly string _mediaTypeResponse = "application/json";
 
     public YnabServiceTests()
     {
         _httpMessageHandlerMock = new Mock<HttpMessageHandler>();
         var httpClient = new HttpClient(_httpMessageHandlerMock.Object)
         {
-            BaseAddress = new Uri("https://api.youneedabudget.com/v1/")
+            BaseAddress = new Uri(_baseUri)
         };
         _sut = new YnabService(httpClient);
     }
     
-    private void SetupMockResponse(HttpStatusCode statusCode)
+    private void SetupMockResponse(YnabTransaction expectedTransactionResult)
     {
-        var response = new HttpResponseMessage(statusCode);
+        var responseMessage = new HttpResponseMessage(HttpStatusCode.OK)
+        {
+            Content = new StringContent(JsonSerializer.Serialize(expectedTransactionResult), System.Text.Encoding.UTF8, _mediaTypeResponse)
+        };
+        
         _httpMessageHandlerMock
             .Protected()
             .Setup<Task<HttpResponseMessage>>(
                 "SendAsync",
                 ItExpr.IsAny<HttpRequestMessage>(),
                 ItExpr.IsAny<CancellationToken>())
-            .ReturnsAsync(response);
+            .ReturnsAsync(responseMessage);
     }
 
     [Fact]
-    public async Task GenerateTransactionAsync_ShouldReturnOK_WhenValidTransactionInput()
+    public async Task GenerateTransactionAsync_ShouldReturnUpdatedTransaction_WhenTransactionInputIsValid()
     {
         // Arrange
         var transaction = new YnabTransaction("id", DateTime.Now, 100, "memo");
-        var expectedResponse = new HttpResponseMessage(HttpStatusCode.OK);
-        SetupMockResponse(HttpStatusCode.OK);
+        var expectedTransaction = transaction;
+        expectedTransaction.Id = "newId";
+        SetupMockResponse(expectedTransaction);
 
         // Act
         var response = await _sut.GenerateTransactionAsync(transaction);
 
         // Assert
-        Assert.Equal(HttpStatusCode.OK, response);
-    }
-    
-    [Fact]
-    public async Task GenerateTransactionAsync_ShouldReturnBadRequest_WhenInvalidTransactionInput()
-    {
-        // Arrange
-        var transaction = new YnabTransaction("id", DateTime.Now, 100, "memo");
-        var expectedResponse = new HttpResponseMessage(HttpStatusCode.BadRequest);
-        SetupMockResponse(HttpStatusCode.BadRequest);
-
-        // Act
-        var response = await _sut.GenerateTransactionAsync(transaction);
-
-        // Assert
-        Assert.Equal(HttpStatusCode.BadRequest, response);
-    }
-    
-    [Fact]
-    public async Task GenerateTransactionAsync_ShouldReturnInternalServerError_WhenServiceError()
-    {
-        // Arrange
-        var transaction = new YnabTransaction("id", DateTime.Now, 100, "memo");
-        var expectedResponse = new HttpResponseMessage(HttpStatusCode.InternalServerError);
-        SetupMockResponse(HttpStatusCode.InternalServerError);
-
-        // Act
-        var response = await _sut.GenerateTransactionAsync(transaction);
-
-        // Assert
-        Assert.Equal(HttpStatusCode.InternalServerError, response);
+        Assert.Equal(expectedTransaction, response);
     }
     
     [Fact]

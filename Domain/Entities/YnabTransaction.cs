@@ -2,6 +2,7 @@ namespace Domain.Entities;
 
 public class YnabTransaction(string accountId, DateTime date, decimal amount, string memo)
 {
+    public string Id { get; set; }
     public string AccountId { get; set; } = accountId;
     public DateTime Date { get; set; } = date;
     public decimal Amount { get; set; } = amount;
