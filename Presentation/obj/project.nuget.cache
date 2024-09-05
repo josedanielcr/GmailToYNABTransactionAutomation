@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TrxXROz4NVg=",
+  "dgSpecHash": "Gga02y2NaP0=",
   "success": true,
   "projectFilePath": "/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Presentation/Presentation.csproj",
   "expectedPackageFiles": [
@@ -20,11 +20,12 @@
     "/home/jd/.nuget/packages/microsoft.identity.client.extensions.msal/4.62.0/microsoft.identity.client.extensions.msal.4.62.0.nupkg.sha512",
     "/home/jd/.nuget/packages/microsoft.identitymodel.abstractions/6.35.0/microsoft.identitymodel.abstractions.6.35.0.nupkg.sha512",
     "/home/jd/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/home/jd/.nuget/packages/openai/2.0.0-beta.11/openai.2.0.0-beta.11.nupkg.sha512",
     "/home/jd/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "/home/jd/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "/home/jd/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
     "/home/jd/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
-    "/home/jd/.nuget/packages/system.clientmodel/1.0.0/system.clientmodel.1.0.0.nupkg.sha512",
+    "/home/jd/.nuget/packages/system.clientmodel/1.1.0-beta.5/system.clientmodel.1.1.0-beta.5.nupkg.sha512",
     "/home/jd/.nuget/packages/system.diagnostics.diagnosticsource/6.0.1/system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",
     "/home/jd/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
     "/home/jd/.nuget/packages/system.memory.data/1.0.2/system.memory.data.1.0.2.nupkg.sha512",
