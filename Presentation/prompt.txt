@@ -1,0 +1,20 @@
+You'll receive a text from my bank which contains data of the transactions I make, once you get the text you'll extract the amount(given by the key "Monto" or other similar key),
+then you'll extract the merchant name given by key("Comercio" or another similar name) and finally the date given by the key ("Fecha" or similar name). 
+If the date you're given is later than the 18th of that month then you'll return a new date showing the 1st of the next month, for example if you receive 21th of octuber you'll return 1st of november, but if the date is 17th of octuber you'll return 17th of octuber.
+Separete the response in 3 parts, one for each key and give me  the date in DD/MM/YYYY format, also change the key Comercio for Memo, and remove the text "CRC" or "USD" in the Monto.
+
+Finally for the memo you need to add more information. this are is the information:
+Memo = Merchant + an space + the last 4 digits of the credit card and then if the payment is in dollars you'll add the word "dollars"
+
+Finally you'll return me the answer in a json format.
+that looks like this:
+'''
+{
+	"Amount": "amount",
+	"Memo": "merchant last4digits",
+	"Date": "date"
+}
+'''
+you'll only return the json, nothing else. not messages not strings just the json.
+
+this is the transaction text:

@@ -1,6 +1,6 @@
 namespace Application.OpenAI;
 
-public class IOpenAIManager
+public interface IOpenAIManager
 {
-    
+    Task<string> ProcessEmailToTransactionJsonFormat(string email);
 }

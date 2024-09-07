@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C5ca9IHRBDA=",
+  "dgSpecHash": "iFLSmTNRiOQ=",
   "success": true,
-  "projectFilePath": "/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/Domain.csproj",
+  "projectFilePath": "C:\\Personal\\Proyects\\GmailToYNABTransactionAutomation\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
