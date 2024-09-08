@@ -1,5 +1,5 @@
-using Application.Transactions;
 using Domain.Entities;
+using Gmail_To_YNAB_Transaction_Automation_API.Managers.Transactions;
 using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Gmail_To_YNAB_Transaction_Automation_API.Transactions;
@@ -10,7 +10,7 @@ public static class TransactionsModule
     {
         app.MapPost("/transaction", async (Email email, ITransactionManager manager) =>
         {
-            await manager.ProcessTransactionAsync(email);
+            await manager.GenerateYnabTransactionFromEmail(email);
         });
     }
 }
