@@ -2,6 +2,7 @@
 using Domain.Entities;
 using Gmail_To_YNAB_Transaction_Automation_API.Managers.OpenAI;
 using Gmail_To_YNAB_Transaction_Automation_API.Managers.YNAB;
+using Newtonsoft.Json;
 
 namespace Gmail_To_YNAB_Transaction_Automation_API.Managers.Transactions
 {
@@ -16,9 +17,17 @@ namespace Gmail_To_YNAB_Transaction_Automation_API.Managers.Transactions
             this._openAiManager = openAiManager;
         }
 
-        public Task GenerateYnabTransactionFromEmail(Email email)
+        public async Task GenerateYnabTransactionFromEmail(Email email)
         {
-            throw new NotImplementedException();
+            ArgumentNullException.ThrowIfNull(email);
+            var jsonTransactionDetails = await _openAiManager.GetParsedTransactionFromOpenAiChatGpt(email.Body)
+                ?? throw new InvalidOperationException("OpenAi response is invalid");
+
+            var deserializedTransaction = JsonConvert.DeserializeObject<YnabTransaction>(jsonTransactionDetails)
+                ?? throw new InvalidOperationException("deserialization of transaction is invalid");
+
+            _ = await _ynabManager.GenerateYnabTransactionAsync(deserializedTransaction)
+                ?? throw new InvalidOperationException("ynab transaction api request response is invalid");
         }
     }
 }

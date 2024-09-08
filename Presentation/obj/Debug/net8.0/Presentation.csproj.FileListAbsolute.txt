@@ -102,3 +102,4 @@ C:\Personal\Proyects\GmailToYNABTransactionAutomation\Presentation\obj\Debug\net
 C:\Personal\Proyects\GmailToYNABTransactionAutomation\Presentation\obj\Debug\net8.0\Presentation.pdb
 C:\Personal\Proyects\GmailToYNABTransactionAutomation\Presentation\obj\Debug\net8.0\Presentation.genruntimeconfig.cache
 C:\Personal\Proyects\GmailToYNABTransactionAutomation\Presentation\obj\Debug\net8.0\ref\Presentation.dll
+C:\Personal\Proyects\GmailToYNABTransactionAutomation\Presentation\bin\Debug\net8.0\Newtonsoft.Json.dll
