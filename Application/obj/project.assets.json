@@ -27,32 +27,35 @@
     ]
   },
   "packageFolders": {
-    "/home/jd/.nuget/packages/": {}
+    "C:\\Users\\jcanales\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Application/Application.csproj",
+      "projectUniqueName": "C:\\Personal\\Proyects\\GmailToYNABTransactionAutomation\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Application/Application.csproj",
-      "packagesPath": "/home/jd/.nuget/packages/",
-      "outputPath": "/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Application/obj/",
+      "projectPath": "C:\\Personal\\Proyects\\GmailToYNABTransactionAutomation\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\jcanales\\.nuget\\packages\\",
+      "outputPath": "C:\\Personal\\Proyects\\GmailToYNABTransactionAutomation\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/jd/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\jcanales\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/Domain.csproj": {
-              "projectPath": "/home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/Domain.csproj"
+            "C:\\Personal\\Proyects\\GmailToYNABTransactionAutomation\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Personal\\Proyects\\GmailToYNABTransactionAutomation\\Domain\\Domain.csproj"
             }
           }
         }
@@ -87,7 +90,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/jd/.dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

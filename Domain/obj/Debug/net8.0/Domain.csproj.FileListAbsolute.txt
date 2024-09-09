@@ -10,3 +10,15 @@
 /home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/obj/Debug/net8.0/refint/Domain.dll
 /home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/obj/Debug/net8.0/Domain.pdb
 /home/jd/JD/Programming/Projects/Gmail-To-YNAB-Transaction-Automation/Domain/obj/Debug/net8.0/ref/Domain.dll
+C:\Personal\Proyects\GmailToYNABTransactionAutomation\Domain\bin\Debug\net8.0\Domain.deps.json
+C:\Personal\Proyects\GmailToYNABTransactionAutomation\Domain\bin\Debug\net8.0\Domain.dll
+C:\Personal\Proyects\GmailToYNABTransactionAutomation\Domain\bin\Debug\net8.0\Domain.pdb
+C:\Personal\Proyects\GmailToYNABTransactionAutomation\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Personal\Proyects\GmailToYNABTransactionAutomation\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+C:\Personal\Proyects\GmailToYNABTransactionAutomation\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+C:\Personal\Proyects\GmailToYNABTransactionAutomation\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\Personal\Proyects\GmailToYNABTransactionAutomation\Domain\obj\Debug\net8.0\Domain.sourcelink.json
+C:\Personal\Proyects\GmailToYNABTransactionAutomation\Domain\obj\Debug\net8.0\Domain.dll
+C:\Personal\Proyects\GmailToYNABTransactionAutomation\Domain\obj\Debug\net8.0\refint\Domain.dll
+C:\Personal\Proyects\GmailToYNABTransactionAutomation\Domain\obj\Debug\net8.0\Domain.pdb
+C:\Personal\Proyects\GmailToYNABTransactionAutomation\Domain\obj\Debug\net8.0\ref\Domain.dll
