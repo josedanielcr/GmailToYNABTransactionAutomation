@@ -17,14 +17,20 @@ namespace Gmail_To_YNAB_Transaction_Automation_API.Managers.YNAB
         public async Task<YnabTransaction> GenerateYnabTransactionAsync(YnabTransaction ynabTransaction)
         {
             ArgumentNullException.ThrowIfNull(ynabTransaction);
-            var accountId = _configuration["ynab:accountId"];
+            var budgetId = _configuration["ynab-budget"];
+            var accountId = _configuration["ynab-account"];
 
+            if(string.IsNullOrEmpty(budgetId))
+            {
+                throw new InvalidOperationException("Failed to get account id from configuration");
+            }
+            
             if(string.IsNullOrEmpty(accountId))
             {
                 throw new InvalidOperationException("Failed to get account id from configuration");
             }
 
-            var result = await _ynabService.GenerateTransactionAsync(ynabTransaction, accountId) 
+            var result = await _ynabService.GenerateTransactionAsync(ynabTransaction, budgetId, accountId) 
                 ?? throw new InvalidOperationException("Failed to generate transaction");
 
             var content = await result.Content.ReadAsStringAsync();

@@ -15,6 +15,7 @@ public class YnabServiceTests
     private readonly string _baseUri = "https://api.youneedabudget.com/v1/";
     private readonly string _mediaTypeResponse = "application/json";
     private readonly string _myBudgetId = "myBudget";
+    private readonly string _myAccountId = "myAccount";
 
     public YnabServiceTests()
     {
@@ -51,7 +52,7 @@ public class YnabServiceTests
         SetupMockResponse(mockResponse);
 
         // Act
-        var response = await _sut.GenerateTransactionAsync(transaction,_myBudgetId);
+        var response = await _sut.GenerateTransactionAsync(transaction,_myBudgetId,_myAccountId);
 
         // Assert
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
@@ -68,6 +69,6 @@ public class YnabServiceTests
     public async Task GenerateTransactionAsync_ShouldThrowArgumentNullException_WhenTransactionIsNull()
     {
         // Act & Assert
-        await Assert.ThrowsAsync<ArgumentNullException>(() => _sut.GenerateTransactionAsync(null,_myBudgetId));
+        await Assert.ThrowsAsync<ArgumentNullException>(() => _sut.GenerateTransactionAsync(null,_myBudgetId,_myAccountId));
     }
 }

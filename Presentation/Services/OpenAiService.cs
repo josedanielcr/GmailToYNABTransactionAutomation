@@ -9,6 +9,6 @@ public class OpenAiService(ChatClient chatClient) : IOpenAiService
         if(prompt == null) return "";
         UserChatMessage message = new UserChatMessage(prompt);
         ChatCompletion completion = await chatClient.CompleteChatAsync(message);
-        return completion.Content.ToString() ?? "";
+        return completion.Content[0].Text;
     }
 }

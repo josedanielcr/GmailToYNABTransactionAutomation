@@ -24,10 +24,10 @@ namespace Presentation.Test.Managers
             _sut = new YnabManager(_ynabService.Object, _configuration.Object);
         }
 
-        private void SetupYnabServiceMock(string accountId, HttpResponseMessage result)
+        private void SetupYnabServiceMock(string budgetId,string accountId, HttpResponseMessage result)
         {
             _ynabService.Setup(x => x.GenerateTransactionAsync(
-                It.IsAny<YnabTransaction>(), accountId)
+                It.IsAny<YnabTransaction>(), budgetId,accountId)
             ).ReturnsAsync(result);
         }
 
@@ -55,7 +55,7 @@ namespace Presentation.Test.Managers
                 Content = new StringContent(contentString, Encoding.UTF8, "application/json")
             };
             SetupConfigurationMock();
-            SetupYnabServiceMock("accountId", mockResponse);
+            SetupYnabServiceMock("accountId","accountId", mockResponse);
 
             // Act
             var result = await _sut.GenerateYnabTransactionAsync(transaction);

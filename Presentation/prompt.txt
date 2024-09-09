@@ -8,13 +8,26 @@ Memo = Merchant + an space + the last 4 digits of the credit card and then if th
 
 Finally you'll return me the answer in a json format.
 that looks like this:
-'''
 {
 	"Amount": "amount",
 	"Memo": "merchant last4digits",
 	"Date": "date"
 }
-'''
-you'll only return the json, nothing else. not messages not strings just the json.
+you'll only return the json, nothing else.
+
+I don't want a response like this one: 
+```json
+{
+	"Amount": "100",
+	"Memo": "hello dog 1234 dollars",
+	"Date": "01/11/2023"
+}
+```
+just like this:
+{
+	"Amount": "100",
+	"Memo": "hello dog 1234 dollars",
+	"Date": "01/11/2023"
+}
 
 this is the transaction text:
