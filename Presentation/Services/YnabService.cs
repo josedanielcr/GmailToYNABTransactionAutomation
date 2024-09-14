@@ -12,6 +12,7 @@ public class YnabService: IYnabService
     private readonly string _mediaTypeResponse = "application/json";
     private readonly JsonSerializerOptions _jsonSerializerOptions;
     private readonly HttpClient _client;
+    private readonly int multiplier = 1000;
 
     public YnabService(HttpClient client)
     {
@@ -45,7 +46,7 @@ public class YnabService: IYnabService
             {
                 account_id = transaction.AccountId,
                 date = transaction.Date,
-                amount = transaction.Amount,
+                amount = transaction.Amount * multiplier,
                 memo = transaction.Memo,
                 cleared = transaction.Cleared
             }
